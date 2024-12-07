@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hafiza Shopping Cart</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Hafiza Shop</h1>
+      <div class="cart-info">
+        <button id="cart-button">
+          Cart (<span id="cart-count">0</span>)
+          <span id="cart-total">$0.00</span>
+        </button>
+      </div>
+    </header>
+
+    <main>
+      <div class="products" id="products">
+        <div class="loading">Loading products...</div>
+      </div>
+
+      <div class="cart-modal" id="cart-modal">
+        <div class="cart-content">
+          <div class="cart-header">
+            <h2>Your Cart</h2>
+            <button class="close-button" id="close-cart">&times;</button>
+          </div>
+
+          <div class="cart-items" id="cart-items">
+            <!-- Cart items will be inserted here -->
+          </div>
+
+          <div class="cart-footer">
+            <div class="cart-total">
+              Total: <span id="modal-cart-total">$0.00</span>
+            </div>
+            <button id="checkout-button" class="checkout-button">
+              Checkout
+            </button>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <div class="notification" id="notification">
+      <!-- Notifications will be shown here -->
+    </div>
+  </div>
+
+  <script type="module" src="src/main.ts"></script>
+</body>
+</html> 

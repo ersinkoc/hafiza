@@ -66,59 +66,45 @@ store.dispatch({
 });
 ```
 
-## Core Concepts
-
-### Store
-The central piece that holds the application state. It provides methods to dispatch actions and subscribe to state changes.
-
-### Computed Values
-Values that are automatically derived from the state with dependency tracking. They are recalculated only when their dependencies change.
-
-### Middleware
-A powerful way to extend the store's functionality. Middleware can intercept actions, modify state updates, and add new capabilities.
-
-### Time Travel
-Debug your application by moving back and forth through state changes. Integrated with Redux DevTools for a great debugging experience.
-
 ## Documentation
 
-- [Getting Started](docs/getting-started.md)
-- [Core Concepts](docs/core-concepts.md)
-- [API Reference](docs/api-reference.md)
-- [Middleware Guide](docs/middleware-guide.md)
-- [Advanced Topics](docs/advanced-topics.md)
+### Getting Started
+- [Installation & Setup](docs/guides/installation.md)
+- [Basic Usage](docs/guides/basic-usage.md)
+- [Core Concepts](docs/guides/core-concepts.md)
+
+### API Reference
+- [Store](docs/api/store.md)
+- [Computed Values](docs/api/computed.md)
+- [Middleware](docs/api/middleware.md)
+- [Time Travel](docs/api/time-travel.md)
+
+### Guides
+- [State Management Best Practices](docs/guides/state-management.md)
+- [Using Middleware](docs/guides/middleware.md)
+- [Working with Computed Values](docs/guides/computed.md)
+- [Time Travel Debugging](docs/guides/time-travel.md)
+- [DevTools Integration](docs/guides/devtools.md)
+- [State Persistence](docs/guides/persistence.md)
+- [TypeScript Usage](docs/guides/typescript.md)
+
+### Contributing
+- [How to Contribute](docs/contributing/contributing.md)
+- [Development Guide](docs/contributing/development.md)
+- [Code Style Guide](docs/contributing/code-style.md)
+- [Testing Guide](docs/contributing/testing.md)
+
+### Project Info
+- [Architecture](docs/ARCHITECTURE.md)
+- [Changelog](docs/CHANGELOG.md)
+- [Roadmap](docs/ROADMAP.md)
 
 ## Examples
 
 Check out the [examples](examples) directory for sample applications:
 
-- [Todo App](examples/todo)
-- [Counter](examples/counter)
-- [Shopping Cart](examples/shopping-cart)
-
-## Contributing
-
-We welcome contributions! Please see our [Contributing Guide](CONTRIBUTING.md) for details.
-
-### Development Setup
-
-```bash
-# Clone the repository
-git clone https://github.com/ersinkoc/hafiza.git
-
-# Install dependencies
-npm install
-
-# Run tests
-npm test
-
-# Build the project
-npm run build
-```
-
-## Roadmap
-
-See our [Roadmap](docs/roadmap.md) for planned features and improvements.
+- [Todo App](examples/todo): Basic todo application demonstrating core features
+- [Shopping Cart](examples/shopping-cart): Advanced example with async actions and persistence
 
 ## License
 
