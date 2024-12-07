@@ -104,8 +104,18 @@ store.dispatch({
 Check out the [examples](examples) directory for sample applications:
 
 - [Todo App](examples/todo): Basic todo application demonstrating core features
-- [Shopping Cart](examples/shopping-cart): Advanced example with async actions and persistence
+- [Shopping Cart](examples/shopping-cart): E-commerce example with async actions and persistence
+- [Kanban Board](examples/kanban): Complex project management with drag-and-drop
+- [Chat App](examples/chat): Real-time messaging with user status and typing indicators
+- [Form Builder](examples/form-builder): Dynamic form creation with validation and preview
+- [Counter](examples/counter): Simple counter with basic state management
+- [Notes](examples/notes): Note-taking app with tags and search
+- [Timer](examples/timer): Countdown and stopwatch functionality
+- [Theme Switcher](examples/theme-switcher): Dynamic theme management and customization
+- [Dashboard](examples/dashboard): Widget-based dashboard with drag-and-drop layout
 
 ## License
 
 [MIT](LICENSE) 
+</```
+rewritten_file>
