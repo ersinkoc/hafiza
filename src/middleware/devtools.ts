@@ -1,5 +1,6 @@
 import { State, Action, AsyncAction } from '../types';
 import { Middleware } from './types';
+import { TimeTravel } from '../core/timeTravel';
 
 interface DevToolsExtension {
   connect: (options: any) => DevToolsConnection;
@@ -31,6 +32,7 @@ export function createDevToolsMiddleware<S extends State>(
   };
 
   const finalConfig = { ...defaultConfig, ...config };
+  const timeTravel = new TimeTravel<S>(finalConfig.maxAge);
 
   return store => {
     let devTools: DevToolsConnection | undefined;
@@ -42,27 +44,67 @@ export function createDevToolsMiddleware<S extends State>(
 
       // Subscribe to DevTools messages
       devTools.subscribe((message: any) => {
-        if (message.type === 'DISPATCH' && message.payload.type === 'JUMP_TO_ACTION') {
-          const newState = JSON.parse(message.state);
-          // Here we would need to implement time travel
-          console.log('Time travel requested to state:', newState);
+        if (message.type === 'DISPATCH') {
+          let nextState: S | undefined;
+
+          switch (message.payload.type) {
+            case 'JUMP_TO_ACTION':
+            case 'JUMP_TO_STATE':
+              const targetState = JSON.parse(message.state);
+              const targetIndex = timeTravel.getHistory().findIndex(
+                entry => JSON.stringify(entry.state) === message.state
+              );
+              if (targetIndex !== -1) {
+                nextState = timeTravel.jumpToIndex(targetIndex);
+              }
+              break;
+
+            case 'RESET':
+              timeTravel.clear();
+              nextState = store.getState();
+              break;
+
+            case 'ROLLBACK':
+              nextState = timeTravel.jumpToPast(1);
+              break;
+
+            case 'COMMIT':
+              timeTravel.clear();
+              timeTravel.push(store.getState(), { type: '@@COMMIT' });
+              nextState = store.getState();
+              break;
+          }
+
+          if (nextState) {
+            // Özel bir action type ile state'i güncelle
+            store.dispatch({
+              type: '@@devtools/SET_STATE',
+              payload: nextState
+            });
+          }
         }
       });
     }
 
     return next => async action => {
       const result = await next(action);
+      const currentState = store.getState();
       
+      // Time travel geçmişini güncelle
+      if (action.type !== '@@devtools/SET_STATE') {
+        timeTravel.push(currentState, action);
+      }
+
+      // DevTools'a bildir
       if (devTools) {
         if (action.payload instanceof Promise) {
-          // For async actions, wait for the payload to resolve
           const resolvedAction = {
             ...action,
             payload: await action.payload
           };
-          devTools.send(resolvedAction, store.getState());
+          devTools.send(resolvedAction, currentState);
         } else {
-          devTools.send(action, store.getState());
+          devTools.send(action, currentState);
         }
       }
 
