@@ -117,5 +117,3 @@ Check out the [examples](examples) directory for sample applications:
 ## License
 
 [MIT](LICENSE) 
-</```
-rewritten_file>
