@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Timer Example - Hafiza</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Timer</h1>
+      <div class="header-actions">
+        <button id="new-countdown">⏱️ New Countdown</button>
+        <button id="new-stopwatch">⌛ New Stopwatch</button>
+        <button id="toggle-sound" class="icon-button">🔔</button>
+      </div>
+    </header>
+
+    <main>
+      <div class="active-timer">
+        <div class="time-display">
+          <div id="time" class="time">00:00:00.00</div>
+          <div id="timer-type" class="timer-type"></div>
+        </div>
+
+        <div class="timer-controls">
+          <button id="start-pause" class="primary">Start</button>
+          <button id="reset">Reset</button>
+          <button id="lap" class="hidden">Lap</button>
+        </div>
+
+        <div id="duration-input" class="duration-input hidden">
+          <label>Duration:</label>
+          <div class="time-inputs">
+            <input type="number" id="hours" min="0" max="99" value="0">
+            <span>:</span>
+            <input type="number" id="minutes" min="0" max="59" value="0">
+            <span>:</span>
+            <input type="number" id="seconds" min="0" max="59" value="0">
+          </div>
+          <button id="set-duration">Set</button>
+        </div>
+
+        <div id="intervals" class="intervals hidden">
+          <h3>Intervals</h3>
+          <div id="intervals-list" class="intervals-list"></div>
+        </div>
+      </div>
+
+      <div class="timers-list">
+        <h2>Timers</h2>
+        <div id="timers-grid" class="timers-grid"></div>
+      </div>
+    </main>
+
+    <footer>
+      <div class="stats">
+        <div id="stats"></div>
+        <div class="undo-redo">
+          <button id="undo">↩️</button>
+          <button id="redo">↪️</button>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <audio id="timer-complete" src="data:audio/wav;base64,..." preload="auto"></audio>
+
+  <script type="module" src="src/main.ts"></script>
+</body>
+</html> 

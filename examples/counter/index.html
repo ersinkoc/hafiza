@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Counter Example - Hafiza</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Counter Example</h1>
+    
+    <div class="counter-display">
+      <div class="value" id="counter-value">0</div>
+      <div class="trend" id="trend-indicator">
+        <span class="trend-up">⬆️</span>
+        <span class="trend-down">⬇️</span>
+      </div>
+    </div>
+
+    <div class="controls">
+      <button id="decrement">-</button>
+      <button id="increment">+</button>
+      <button id="random">🎲</button>
+      <button id="reset">↺</button>
+    </div>
+
+    <div class="stats">
+      <div class="stat-item">
+        <label>Even/Odd:</label>
+        <span id="even-odd">Even</span>
+      </div>
+      <div class="stat-item">
+        <label>Average:</label>
+        <span id="average">0</span>
+      </div>
+      <div class="stat-item">
+        <label>Min:</label>
+        <span id="min-value">0</span>
+      </div>
+      <div class="stat-item">
+        <label>Max:</label>
+        <span id="max-value">0</span>
+      </div>
+    </div>
+
+    <div class="history">
+      <h3>History</h3>
+      <button id="clear-history">Clear</button>
+      <div class="history-list" id="history-list"></div>
+    </div>
+
+    <div class="last-update">
+      Last updated: <span id="last-update">Never</span>
+    </div>
+  </div>
+
+  <script type="module" src="src/main.ts"></script>
+</body>
+</html> 

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Theme Switcher Example - Hafiza</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Theme Switcher</h1>
+      <div class="header-actions">
+        <button id="toggle-mode">🌓</button>
+        <div class="undo-redo">
+          <button id="undo">↩️</button>
+          <button id="redo">↪️</button>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <div class="theme-selector">
+        <h2>Themes</h2>
+        <div id="themes-list" class="themes-list"></div>
+      </div>
+
+      <div class="theme-customizer">
+        <h2>Customize Theme</h2>
+        
+        <div class="color-section">
+          <h3>Colors</h3>
+          <div class="color-inputs">
+            <div class="color-input">
+              <label for="primary-color">Primary</label>
+              <input type="color" id="primary-color">
+            </div>
+            <div class="color-input">
+              <label for="secondary-color">Secondary</label>
+              <input type="color" id="secondary-color">
+            </div>
+            <div class="color-input">
+              <label for="background-color">Background</label>
+              <input type="color" id="background-color">
+            </div>
+            <div class="color-input">
+              <label for="text-color">Text</label>
+              <input type="color" id="text-color">
+            </div>
+            <div class="color-input">
+              <label for="accent-color">Accent</label>
+              <input type="color" id="accent-color">
+            </div>
+          </div>
+        </div>
+
+        <div class="spacing-section">
+          <h3>Spacing</h3>
+          <div class="spacing-inputs">
+            <div class="spacing-input">
+              <label for="small-spacing">Small</label>
+              <input type="range" id="small-spacing" min="4" max="16" step="2">
+              <span class="spacing-value"></span>
+            </div>
+            <div class="spacing-input">
+              <label for="medium-spacing">Medium</label>
+              <input type="range" id="medium-spacing" min="8" max="32" step="4">
+              <span class="spacing-value"></span>
+            </div>
+            <div class="spacing-input">
+              <label for="large-spacing">Large</label>
+              <input type="range" id="large-spacing" min="16" max="48" step="8">
+              <span class="spacing-value"></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="typography-section">
+          <h3>Typography</h3>
+          <div class="font-inputs">
+            <div class="font-input">
+              <label for="font-family">Font Family</label>
+              <select id="font-family">
+                <option value="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif">System UI</option>
+                <option value="Georgia, serif">Georgia</option>
+                <option value="'Playfair Display', serif">Playfair Display</option>
+                <option value="'Roboto Mono', monospace">Roboto Mono</option>
+              </select>
+            </div>
+            <div class="font-input">
+              <label for="border-radius">Border Radius</label>
+              <input type="range" id="border-radius" min="0" max="24" step="2">
+              <span class="radius-value"></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="save-section">
+          <h3>Save Theme</h3>
+          <div class="save-theme">
+            <input type="text" id="theme-name" placeholder="Theme name">
+            <button id="save-theme">Save</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="preview-section">
+        <h2>Preview</h2>
+        <div class="preview-container">
+          <div class="preview-header">
+            <h3>Sample Header</h3>
+            <button class="preview-button primary">Primary Button</button>
+          </div>
+          
+          <div class="preview-content">
+            <p>This is a sample text to preview the current theme. It includes various elements to demonstrate different aspects of the theme.</p>
+            
+            <div class="preview-buttons">
+              <button class="preview-button secondary">Secondary Button</button>
+              <button class="preview-button accent">Accent Button</button>
+            </div>
+
+            <div class="preview-card">
+              <h4>Card Title</h4>
+              <p>This is a card component to demonstrate background colors, spacing, and typography.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script type="module" src="src/main.ts"></script>
+</body>
+</html> 

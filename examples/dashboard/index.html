@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard Example - Hafiza</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Dashboard</h1>
+      <div class="header-actions">
+        <div class="add-widget">
+          <button id="add-widget">Add Widget</button>
+          <div class="widget-menu hidden">
+            <button data-type="chart">📈 Chart</button>
+            <button data-type="stats">📊 Stats</button>
+            <button data-type="table">📋 Table</button>
+            <button data-type="calendar">📅 Calendar</button>
+            <button data-type="weather">🌤️ Weather</button>
+            <button data-type="clock">⏰ Clock</button>
+          </div>
+        </div>
+        <div class="dashboard-controls">
+          <button id="save-layout">💾</button>
+          <button id="settings">⚙️</button>
+          <div class="undo-redo">
+            <button id="undo">↩️</button>
+            <button id="redo">↪️</button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <div id="dashboard-grid" class="dashboard-grid"></div>
+    </main>
+
+    <div id="widget-editor" class="widget-editor hidden">
+      <div class="editor-header">
+        <h2>Widget Settings</h2>
+        <button id="close-editor">✕</button>
+      </div>
+
+      <div class="editor-content">
+        <div class="widget-info">
+          <input type="text" id="widget-title" placeholder="Widget Title">
+          <span id="widget-type"></span>
+          <span id="last-updated"></span>
+        </div>
+
+        <div class="settings-sections">
+          <div class="settings-section">
+            <h3>Display Settings</h3>
+            <div class="setting-group">
+              <label for="display-mode">Display Mode</label>
+              <select id="display-mode">
+                <option value="compact">Compact</option>
+                <option value="detailed">Detailed</option>
+              </select>
+            </div>
+            <div class="setting-group">
+              <label for="refresh-interval">Refresh Interval (s)</label>
+              <input type="number" id="refresh-interval" min="5" step="5">
+            </div>
+          </div>
+
+          <div id="chart-settings" class="settings-section hidden">
+            <h3>Chart Settings</h3>
+            <div class="setting-group">
+              <label for="chart-type">Chart Type</label>
+              <select id="chart-type">
+                <option value="line">Line</option>
+                <option value="bar">Bar</option>
+                <option value="pie">Pie</option>
+              </select>
+            </div>
+            <div class="setting-group">
+              <label>
+                <input type="checkbox" id="show-legend">
+                Show Legend
+              </label>
+            </div>
+            <div class="setting-group">
+              <label>
+                <input type="checkbox" id="show-grid">
+                Show Grid
+              </label>
+            </div>
+          </div>
+
+          <div id="data-settings" class="settings-section">
+            <h3>Data Settings</h3>
+            <div class="setting-group">
+              <label for="data-source">Data Source</label>
+              <select id="data-source"></select>
+            </div>
+            <div class="setting-group">
+              <label for="color-scheme">Color Scheme</label>
+              <select id="color-scheme">
+                <option value="default">Default</option>
+                <option value="warm">Warm</option>
+                <option value="cool">Cool</option>
+                <option value="monochrome">Monochrome</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="editor-footer">
+        <button id="remove-widget" class="danger">Remove Widget</button>
+        <button id="apply-settings" class="primary">Apply Settings</button>
+      </div>
+    </div>
+
+    <div id="dashboard-settings" class="dashboard-settings hidden">
+      <div class="settings-header">
+        <h2>Dashboard Settings</h2>
+        <button id="close-settings">✕</button>
+      </div>
+
+      <div class="settings-content">
+        <div class="settings-section">
+          <h3>Layout Settings</h3>
+          <div class="setting-group">
+            <label for="grid-columns">Grid Columns</label>
+            <input type="number" id="grid-columns" min="4" max="12" step="2">
+          </div>
+          <div class="setting-group">
+            <label for="row-height">Row Height (px)</label>
+            <input type="number" id="row-height" min="50" max="200" step="10">
+          </div>
+          <div class="setting-group">
+            <label for="grid-padding">Grid Padding (px)</label>
+            <input type="number" id="grid-padding" min="5" max="20" step="5">
+          </div>
+        </div>
+
+        <div class="settings-section">
+          <h3>Update Settings</h3>
+          <div class="setting-group">
+            <label>
+              <input type="checkbox" id="auto-update">
+              Auto Update
+            </label>
+          </div>
+          <div class="setting-group">
+            <label for="update-interval">Update Interval (s)</label>
+            <input type="number" id="update-interval" min="10" step="5">
+          </div>
+        </div>
+
+        <div class="settings-section">
+          <h3>Dashboard Statistics</h3>
+          <div id="dashboard-stats"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="src/main.ts"></script>
+</body>
+</html> 

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Notes Example - Hafiza</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Notes</h1>
+      <div class="search-bar">
+        <input type="text" id="search" placeholder="Search notes...">
+      </div>
+    </header>
+
+    <main>
+      <div class="sidebar">
+        <button id="new-note" class="primary">New Note</button>
+        
+        <div class="tags-section">
+          <h3>Tags</h3>
+          <div id="tags-list" class="tags-list"></div>
+        </div>
+
+        <div class="sort-section">
+          <h3>Sort By</h3>
+          <select id="sort-by">
+            <option value="updated">Last Updated</option>
+            <option value="created">Created Date</option>
+          </select>
+          <select id="sort-order">
+            <option value="desc">Newest First</option>
+            <option value="asc">Oldest First</option>
+          </select>
+        </div>
+
+        <div class="stats-section">
+          <h3>Statistics</h3>
+          <div id="stats"></div>
+        </div>
+      </div>
+
+      <div class="notes-container">
+        <div class="pinned-notes">
+          <h2>📌 Pinned</h2>
+          <div id="pinned-notes" class="notes-grid"></div>
+        </div>
+
+        <div class="other-notes">
+          <h2>📝 Notes</h2>
+          <div id="notes-grid" class="notes-grid"></div>
+        </div>
+      </div>
+    </main>
+
+    <div id="note-editor" class="note-editor hidden">
+      <div class="editor-header">
+        <input type="text" id="note-title" placeholder="Note title">
+        <div class="editor-actions">
+          <button id="pin-note">📌</button>
+          <input type="color" id="note-color" value="#ffffff">
+          <button id="delete-note">🗑️</button>
+          <button id="close-editor">✕</button>
+        </div>
+      </div>
+
+      <textarea id="note-content" placeholder="Start typing..."></textarea>
+
+      <div class="editor-footer">
+        <div class="tags-input">
+          <input type="text" id="tag-input" placeholder="Add tag...">
+          <div id="note-tags" class="note-tags"></div>
+        </div>
+        <div class="editor-info">
+          <span id="last-updated"></span>
+          <div class="undo-redo">
+            <button id="undo">↩️</button>
+            <button id="redo">↪️</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="src/main.ts"></script>
+</body>
+</html> 
