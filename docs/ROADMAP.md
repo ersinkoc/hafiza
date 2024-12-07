@@ -119,4 +119,4 @@ We welcome contributions! Here's how you can help:
    - Feature discussions
    - Bug reports
 
-See our [Contributing Guide](../CONTRIBUTING.md) for more details. 
+See our [Contributing Guide](contributing/contributing.md) for more details. 
