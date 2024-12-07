@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hafiza Form Builder</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <div class="forms-list">
+        <div class="forms-header">
+          <h2>Forms</h2>
+          <button id="new-form-button">New Form</button>
+        </div>
+        <div id="forms-container">
+          <!-- Forms will be inserted here -->
+        </div>
+      </div>
+
+      <div class="field-types">
+        <h2>Field Types</h2>
+        <div class="field-type-list">
+          <div class="field-type" draggable="true" data-type="text">
+            <span class="icon">Aa</span>
+            <span>Text</span>
+          </div>
+          <div class="field-type" draggable="true" data-type="number">
+            <span class="icon">123</span>
+            <span>Number</span>
+          </div>
+          <div class="field-type" draggable="true" data-type="email">
+            <span class="icon">@</span>
+            <span>Email</span>
+          </div>
+          <div class="field-type" draggable="true" data-type="password">
+            <span class="icon">***</span>
+            <span>Password</span>
+          </div>
+          <div class="field-type" draggable="true" data-type="textarea">
+            <span class="icon">¶</span>
+            <span>Text Area</span>
+          </div>
+          <div class="field-type" draggable="true" data-type="select">
+            <span class="icon">▼</span>
+            <span>Select</span>
+          </div>
+          <div class="field-type" draggable="true" data-type="radio">
+            <span class="icon">○</span>
+            <span>Radio</span>
+          </div>
+          <div class="field-type" draggable="true" data-type="checkbox">
+            <span class="icon">☐</span>
+            <span>Checkbox</span>
+          </div>
+          <div class="field-type" draggable="true" data-type="date">
+            <span class="icon">📅</span>
+            <span>Date</span>
+          </div>
+          <div class="field-type" draggable="true" data-type="time">
+            <span class="icon">⏰</span>
+            <span>Time</span>
+          </div>
+          <div class="field-type" draggable="true" data-type="file">
+            <span class="icon">📎</span>
+            <span>File</span>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <main class="form-builder">
+      <div class="form-header">
+        <div class="form-info">
+          <input type="text" id="form-title" placeholder="Form Title">
+          <input type="text" id="form-description" placeholder="Form Description">
+        </div>
+        <div class="form-actions">
+          <button id="undo-button" disabled>Undo</button>
+          <button id="redo-button" disabled>Redo</button>
+          <button id="preview-button">Preview</button>
+          <button id="save-button">Save</button>
+        </div>
+      </div>
+
+      <div class="form-canvas" id="form-canvas">
+        <!-- Form fields will be inserted here -->
+        <div class="empty-state">
+          Drag and drop fields here to build your form
+        </div>
+      </div>
+    </main>
+
+    <aside class="properties-panel">
+      <div class="panel-header">
+        <h2>Field Properties</h2>
+      </div>
+      <div class="panel-content" id="properties-content">
+        <!-- Field properties will be inserted here -->
+        <div class="empty-state">
+          Select a field to edit its properties
+        </div>
+      </div>
+    </aside>
+  </div>
+
+  <!-- New Form Modal -->
+  <div class="modal" id="new-form-modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>New Form</h2>
+        <button class="close-button">&times;</button>
+      </div>
+      <div class="modal-body">
+        <form id="new-form-form">
+          <div class="form-group">
+            <label for="new-form-title">Title</label>
+            <input type="text" id="new-form-title" required>
+          </div>
+          <div class="form-group">
+            <label for="new-form-description">Description</label>
+            <textarea id="new-form-description" rows="3"></textarea>
+          </div>
+          <div class="form-actions">
+            <button type="submit">Create Form</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Preview Modal -->
+  <div class="modal" id="preview-modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>Form Preview</h2>
+        <button class="close-button">&times;</button>
+      </div>
+      <div class="modal-body">
+        <form id="preview-form">
+          <!-- Preview content will be inserted here -->
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="src/main.ts"></script>
+</body>
+</html> 
